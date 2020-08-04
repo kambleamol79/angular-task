@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign Up</h5>
+            <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="register()">
+              <div class="form-group">
+                <label for="inputName">Name</label>
+                <input type="text" [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }" id="inputName" class="form-control" placeholder="Name" formControlName="name" autofocus>
+                <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
+                  <div *ngIf="formControls.name.errors.required">Name is required</div>
+                </div>         
+              </div>
+
+              <div class="form-group">
+                <label for="inputEmail">Email</label>
+                <input type="email" [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }" id="inputEmail" class="form-control" placeholder="Email" formControlName="email">
+                <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+                  <div *ngIf="formControls.email.errors.required">Email is required</div>
+                  <div *ngIf="formControls.email.errors.email">Email must be a valid email address</div>
+                </div>         
+              </div>
+              
+              <div class="form-group">
+                <label for="inputPassword">Password</label>
+                <input type="password" [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }" id="inputPassword" class="form-control" placeholder="Password" name="password" formControlName="password">
+                <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+                  <div *ngIf="formControls.password.errors.required">Password is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputConfirmPassword">Confirm password</label>
+                <input type="password" [ngClass]="{ 'has-error': isSubmitted && formControls.confirm_password.errors }" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" name="confirm_password" formControlName="confirm_password">
+                <div *ngIf="isSubmitted && formControls.confirm_password.errors" class="help-block">
+                  <div *ngIf="formControls.confirm_password.errors.required">Confirm password is required</div>
+                  <div *ngIf="formControls.confirm_password.errors.minlength || formControls.confirm_password.errors.maxlength">Confirm password length should be between 6 and 8</div>
+
+                  <div *ngIf="formControls.confirm_password.errors.mustMatch">Passwords must match</div>
+
+                </div>
+              </div>
+
+              <div class="form-group form-check">
+                <input type="checkbox" formControlName="terms_conditions" id="terms_conditions" class="form-check-input" [ngClass]="{ 'is-invalid': isSubmitted && formControls.terms_conditions.errors }" />
+                <label for="terms_conditions" class="form-check-label">Accept Terms & Conditions</label>
+                <div *ngIf="isSubmitted && formControls.terms_conditions.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+            </div>
+            
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign up</button>       
+                   
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

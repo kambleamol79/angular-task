@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand" routerLink="/">Angular task</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">  
+      </ul>
+      <ul class="navbar-nav px-3" *ngIf="!isLoggeisLoggedIn">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" routerLink="/register">Register</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav px-3" *ngIf="isLoggeisLoggedIn">
+        <div class="text-nowrap">
+          <span class="logged-user">Welcome {{ loggedInUserName }}</span>
+        </div>
+
+        <div class="text-nowrap" (click)="logout()">
+          <span class="logged-user">Logout</span>
+        </div>
+        
+      </ul>
+    </div>
+  </nav>

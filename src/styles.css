@@ -1,0 +1,5 @@
+/* You can add global styles to this file, and also import other style files */
+.has-error {
+    border-color: rgb(216, 12, 12) !important;
+    color: rgb(230, 14, 14) !important;
+}
